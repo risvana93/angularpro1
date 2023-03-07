@@ -1,0 +1,27 @@
+<h3 class="text-success text-center">Login</h3>
+
+<div class="row">
+    <div class="class col"></div>
+    <div class="class col-10">
+        <form [formGroup]="loginform" (ngSubmit)="submitted()">
+            <div class="mb-3">
+                <label for="id_username">Enter Username</label>
+                <input type="text" id="id_username" class="form-control" formControlName="username">
+            </div>
+            <div class="alert alert-danger" *ngIf="loginform.get('username')?.touched && loginform.get('username')?.invalid">
+                Enter Valid Usename
+            </div>
+            <div class="mb-3">
+                 <label for="id_password">Enter Password</label>
+                <input type="password" id="id_password" class="form-control" formControlName="password">  
+            </div>
+            <div class="alert alert-danger" *ngIf="loginform.get('password')?.touched && loginform.get('password')?.invalid">
+                Enter Valid Password
+            </div>
+            <div class="mb-3 text-center">
+                <button class="btn btn-info" [disabled]="loginform.invalid">Login</button>
+            </div>
+        </form>
+    </div>
+    <div class="class col"></div>
+</div>

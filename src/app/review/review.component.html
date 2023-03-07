@@ -1,0 +1,26 @@
+<h1 class="text-success text-center">Add Review</h1>
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col">
+        <form action="" [formGroup]="reviewform" (ngSubmit)="submitted()">
+            <div>
+                <input type="text" placeholder="Enter your Review" formControlName="review">
+                <div class="alert alert-danger" *ngIf="reviewform.get('review')?.touched && reviewform.get('review')?.invalid">
+                    Enter Valid Review
+                </div>
+            </div>
+            <div>
+                <input type="text" placeholder="Enter your Rating" formControlName="rating">
+                <div class="alert alert-danger" *ngIf="reviewform.get('rating')?.touched && reviewform.get('rating')?.invalid">
+                    Enter Valid Rating
+                    <p>Rating Must be between 1 and 5</p>
+                </div>
+            </div>
+            <div class="mt-3 text-center">
+                <button class="btn btn-success" [disabled]="reviewform.invalid">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="col"></div>
+</div>
